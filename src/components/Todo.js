@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import usePrevious from "./UsePrevious"
+import usePrevious from "./UsePrevious";
+import Button from '@mui/material/Button';
 
 export default function Todo(props) {
   const [isEditing, setEditing] = useState(false);
@@ -62,21 +63,21 @@ export default function Todo(props) {
           </label>
         </div>
         <div className="btn-group">
-          <button 
-            type="button" 
+          <Button 
+            variant="outlined" 
             className="btn" 
             onClick={() => setEditing(true)}
             ref={editButtonRef}
           >
             Edit <span className="visually-hidden">{props.name}</span>
-          </button>
-          <button
-            type="button"
-            className="btn btn__danger"
+          </Button>
+          <Button
+            variant="text"
+            className="btn"
             onClick={() => props.deleteTask(props.id)}
           >
             Delete <span className="visually-hidden">{props.name}</span>
-          </button>
+          </Button>
         </div>
     </div>
   );
